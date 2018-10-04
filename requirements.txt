@@ -1,0 +1,4 @@
+configparser
+flask
+connexion
+gunicorn

@@ -1,0 +1,17 @@
+.shared_hidden_key: &shared 
+  before_script:
+   - docker login -u "<username>" -p "<password>"
+
+stages:
+ - build_images
+ - test
+ - deploy
+ 
+job1:
+  tags:
+    - micro_runner
+  <<: *shared
+  stage: build_images
+  script:
+  - docker build -t <image-name> .
+  - docker push <image-name>

@@ -1,0 +1,122 @@
+swagger: '2.0'
+info:
+  description: >-
+    This Service is used to fetch Git Change Log information from GIT Repository.
+  version: 1.0.0
+  title: Git Change Log Information
+  contact:
+    email: devops@digite.com
+  license:
+    name: DigiteDevOps1.0
+    url: 'http://www.digite.com'
+host: 0.0.0.0:5005
+tags:
+  - name: GitChangeLog - ShortStat
+    description: Get Short stat info for Git Change Log.
+  - name: GitChangeLog - FilesChanged
+    description: Get Files Changed info for Git Change Log
+schemes:
+  - http
+paths:
+  '/api/gitchangelog/v1/shortstat/{gitrepo}/{tags}':
+    get:
+      tags:
+        - GitChangeLog - ShortStat
+      summary: Get short stat info from Git Change Log
+      operationId: com.swiftops.changelog.methods.GitChangeLog.getproductshortstat
+      parameters:
+      - name: gitrepo
+        in: path
+        description: Git lab repo name e.g salm_core OR salm_automation
+        type: string
+        required: true
+      - name: tags
+        in: path
+        description: Git lab tags eg. 3.2.0_24..3.2.0_25 OR Rel_3.1.0..Rel_3.2.0
+        type: string
+        required: true
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '405':
+          description: Invalid input
+  '/api/gitchangelog/v1/shortstat/{customer}/{gitrepo}/{tags}':
+    get:
+      tags:
+        - GitChangeLog - ShortStat
+      summary: Get short stat info from Git Change Log for customer
+      operationId: com.swiftops.changelog.methods.GitChangeLog.getcustomshortstat
+      parameters:
+      - name: customer
+        in: path
+        description: Customer Name e.g cognizant OR infy OR kpit
+        type: string
+        required: true
+      - name: gitrepo
+        in: path
+        description: Git lab repo name e.g salm_core OR salm_automation
+        type: string
+        required: true
+      - name: tags
+        in: path
+        description: Git lab tags eg. 3.2.0_24..3.2.0_25 OR Rel_3.1.0..Rel_3.2.0
+        type: string
+        required: true
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '405':
+          description: Invalid input
+  '/api/gitchangelog/v1/fileschanged/{gitrepo}/{tags}':
+    get:
+      tags:
+        - GitChangeLog - FilesChanged
+      summary: Get list of files changed from Git Change Log
+      operationId: com.swiftops.changelog.methods.GitChangeLog.getproductchangedfiles
+      parameters:
+      - name: gitrepo
+        in: path
+        description: Git lab repo name e.g salm_core OR salm_automation
+        type: string
+        required: true
+      - name: tags
+        in: path
+        description: Git lab tags eg. 3.2.0_24..3.2.0_25 OR Rel_3.1.0..Rel_3.2.0
+        type: string
+        required: true
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '405':
+          description: Invalid input
+  '/api/gitchangelog/v1/fileschanged/{customer}/{gitrepo}/{tags}':
+    get:
+      tags:
+        - GitChangeLog - FilesChanged
+      summary: Get list of files changed from Git Change Log
+      operationId: com.swiftops.changelog.methods.GitChangeLog.getcustomchangedfiles
+      parameters:
+      - name: customer
+        in: path
+        description: Customer Name e.g cognizant OR infy OR kpit
+        type: string
+        required: true
+      - name: gitrepo
+        in: path
+        description: Git lab repo name e.g salm_core OR salm_automation
+        type: string
+        required: true
+      - name: tags
+        in: path
+        description: Git lab tags eg. 3.2.0_24..3.2.0_25 OR Rel_3.1.0..Rel_3.2.0
+        type: string
+        required: true
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '405':
+          description: Invalid input
