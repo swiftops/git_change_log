@@ -1,3 +1,4 @@
+import subprocess
 from subprocess import check_output
 import configparser
 import os
@@ -442,3 +443,8 @@ def builderrorresponse(data):
     returndata["data"] = {}
     returndata["error"] = data
     return json.dumps(returndata)
+	
+def getpatchdiff(futurebranch, currentbranch, Release, build):
+    data = subprocess.check_output(['bash', "./gitdifflog.sh", futurebranch, currentbranch, Release, build])
+    jsondata = {"Result": str(data)}
+    return getsuccessresponse(jsondata)

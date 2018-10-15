@@ -93,6 +93,14 @@ def getfileschangedforcommit():
         fileslist = changelog.getfileschangedforcommit(gitrepo, commitid)
     return  fileslist
 
+@app.route('/api/gitchangelog/v1/gitdifflog/', methods=['POST'])
+def getdifflog():
+    req_data = request.get_json()
+    futurebranch = req_data['data']['futurebranch']
+    currentbranch = req_data['data']['currentbranch']
+    Release = req_data['data']['Release']
+    build = req_data['data']['build']
+    return changelog.getpatchdiff(futurebranch, currentbranch, Release, build)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5005, debug=True)
