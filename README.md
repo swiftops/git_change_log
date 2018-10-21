@@ -7,7 +7,7 @@ This microservice is used to fetch git change log data for given git repository 
 ## Installation
 ### Checkout Repository
 ```
-$git clone https://github.com/swiftops/MS-GitChangeLog.git
+$git clone https://github.com/swiftops/git_change_log.git
 ```
 
 ### 1. Deploy inside Docker
