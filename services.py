@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from com.swiftops.changelog.methods import GitChangeLog as changelog
 import connexion
 

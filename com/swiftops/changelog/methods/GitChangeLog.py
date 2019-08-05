@@ -1,4 +1,3 @@
-import subprocess
 from subprocess import check_output
 import configparser
 import os
@@ -53,7 +52,7 @@ def validatecustomer(customer):
         customlist = str(config.get("DEFAULT", "customers")).split(",")
         if not customlist.__contains__(customer):
             raise Exception('Customer not found. Customer name should be from' + customlist.__str__())
-    except Exception as e:
+    except Exception:
         return False
     return True
 
@@ -436,7 +435,6 @@ def getsuccessresponse(data):
     returndata["error"] = {}
     return json.dumps(returndata)
 
-
 def builderrorresponse(data):
     returndata = {}
     returndata["success"] = "false"
@@ -445,6 +443,6 @@ def builderrorresponse(data):
     return json.dumps(returndata)
 	
 def getpatchdiff(futurebranch, currentbranch, Release, build):
-    data = subprocess.check_output(['bash', "./gitdifflog.sh", futurebranch, currentbranch, Release, build])
+    data = check_output(['bash', "./gitdifflog.sh", futurebranch, currentbranch, Release, build])
     jsondata = {"Result": str(data)}
     return getsuccessresponse(jsondata)
