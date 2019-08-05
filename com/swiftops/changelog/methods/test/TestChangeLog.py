@@ -28,14 +28,14 @@ class TestGitChangeLog(TestCase):
         actual=services.getproductshortstat("swiftalm_jbos","4.0.0_0..4.0.0_1")
         expected = "{\"success\": \"false\", \"data\": {}, \"error\": {\"product\": true, \"customer\": \"\", \"statuscode\": 400, \"errormsg\": \"exception occured while fetching repo from git. Exception is [WinError 267] The directory name is invalid\"}}"
         self.assertEqual(actual, expected, "actual output doesnt match expected output")
-      
+
     ## test case for getproductchangedfiles
     def test_getproductchangedfiles(self):
         actual=services.getproductchangedfiles("swiftalm_jboss6","4.0.0_0..4.0.0_1")
         expected = config1.get("DATA", "expected")
         self.assertEqual(actual, expected, "actual output doesnt match expected output")
-      
-    ## test case for getproductchangedfiles with ivalid repo name     
+
+    ## test case for getproductchangedfiles with ivalid repo name
     def test_getproductchangedfiles_invalid_repo(self):
         actual=services.getproductchangedfiles("swiftalm_jboss","4.0.0_0..4.0.0_1")
         expected = "{\"success\": \"false\", \"data\": {}, \"error\": {\"product\": true, \"customer\": \"\", \"statuscode\": 400, \"errormsg\": \"exception occured while fetching repo from git. Exception is [WinError 267] The directory name is invalid\"}}"
@@ -46,4 +46,4 @@ class TestGitChangeLog(TestCase):
         actual=services.getcustomchangedfiles("subex", "swiftalm_jboss6", "subex_3.2.1_IR1..subex_3.2.1_IR2")
         expected="{\"success\": \"true\", \"data\": {\"product\": false, \"customer\": \"subex\", \"database/subex/mssql/dml/DML.SQL\": \"Modified\", \"sourcecode/com/subex/swift/adaptor/SubexFTPDownloader.java\": \"Modified\", \"sourcecode/com/subex/swift/util/SubexConstants.java\": \"Modified\"}, \"error\": {}}"
         self.assertEqual(actual, expected, "actual ouput doesnt match expected output")
-             
+       
