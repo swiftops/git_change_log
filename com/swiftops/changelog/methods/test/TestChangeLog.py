@@ -16,13 +16,13 @@ class TestGitChangeLog(TestCase):
         actual=services.getproductshortstat("swiftalm_jboss6","4.0.0_0..4.0.0_1")
         expected = "{\"success\": \"true\", \"data\": {\"product\": true, \"customer\": \"\", \"filechnages\": \"59\", \"LOCinsertion\": \"1812\", \"LOCdeletion\": \"292\"}, \"error\": {}}"
         self.assertEqual(actual, expected, "actual output doesnt match expected output")
-        
+
     ## testcase for getcustomshortstat
     def test_getcustomshortstat(self):
         actual=services.getcustomshortstat("subex", "swiftalm_jboss6", "subex_3.2.1_IR1..subex_3.2.1_IR2")
         expected = "{\"success\": \"true\", \"data\": {\"product\": false, \"customer\": \"subex\", \"filechnages\": \"3\", \"LOCinsertion\": \"17\", \"LOCdeletion\": \"1\"}, \"error\": {}}"
         self.assertEqual(actual, expected, "actual ouput doesnt match expected output")
-     
+
     ## test case for   getproductshortstat api with invalid repo name
     def test_getproductshortstat_invalid_repo(self):
         actual=services.getproductshortstat("swiftalm_jbos","4.0.0_0..4.0.0_1")

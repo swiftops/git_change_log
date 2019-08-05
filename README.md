@@ -12,19 +12,19 @@ git clone https://github.com/swiftops/git_change_log.git
 
 ### 1. Deploy inside Docker
 ---
-#### Pre-Requisite
+#### Pre-Requisite - Docker
 *   Docker should be installed on your machine. Refer [Install Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04) documentation.
 
 *   Git repository should be checked out locally. e.g  Lets say you have cloned jenkins repository at `/app/work/salm_core`
-    > ssh url (git@github.com:jenkinsci/jenkins.git)
-    > http url (https://github.com/jenkinsci/jenkins.git)
+    >[ssh url](git@github.com:jenkinsci/jenkins.git)
+    >[http url](https://github.com/jenkinsci/jenkins.git)
 
 *   Git repository remote should be set with credentials, no further git operation will prompt for credentials.
-    > e.g (http://<username:password@git-host>/<git-repositiory>) for http ssh key required to set for ssh url
+    >e.g (http://<username:password@git-host>/<git-repositiory>) for http ssh key required to set for ssh url
 
 *   Change property file
-    > gitconfig.ini to change working directory path, customer maping and path to include from working directory.
-    > setup.py to change URL
+    >gitconfig.ini to change working directory path, customer maping and path to include from working directory.
+    >setup.py to change URL
 
 #### Steps to start microservice
 Once you  done with pre-requisite exeute below command to start git change log microservice
@@ -51,9 +51,9 @@ refer .gitlab-ci.yml file.
 ---
 #### Pre-Requisite
 *   Git repository should be checked out locally.
-   e.g  Lets say you have cloned jenkins repository at `/app/work/salm_core`
-    > [ssh url](git@github.com:jenkinsci/jenkins.git)
-    > [http url](https://github.com/jenkinsci/jenkins.git)
+    e.g  Lets say you have cloned jenkins repository at `/app/work/salm_core`
+    >[ssh url](git@github.com:jenkinsci/jenkins.git)
+    >[http url](https://github.com/jenkinsci/jenkins.git)
 
 *   Git repository remote should be set with credential, no further git operation will prompt for credentials.
       e.g (http://<username:password@git-host>/<git-repositiory>) for http
